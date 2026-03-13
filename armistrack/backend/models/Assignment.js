@@ -27,12 +27,4 @@ const assignmentSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-assignmentSchema.pre("save", function (next) {
-  if (!this.assignmentId) {
-    const rand = Math.random().toString(36).substr(2, 6).toUpperCase();
-    this.assignmentId = `A-${rand}`;
-  }
-  next();
-});
-
 module.exports = mongoose.model("Assignment", assignmentSchema);

@@ -33,16 +33,4 @@ const transferSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Validate fromBase !== toBase
-transferSchema.pre("save", function (next) {
-  if (this.fromBase === this.toBase) {
-    return next(new Error("Source and destination bases cannot be the same"));
-  }
-  if (!this.transferId) {
-    const rand = Math.random().toString(36).substr(2, 6).toUpperCase();
-    this.transferId = `T-${rand}`;
-  }
-  next();
-});
-
 module.exports = mongoose.model("Transfer", transferSchema);

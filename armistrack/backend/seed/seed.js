@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "../.env" });
+require("dotenv").config({ path: "./.env" });
 const mongoose = require("mongoose");
 const User = require("../models/User");
 const Purchase = require("../models/Purchase");
@@ -48,22 +48,33 @@ const openingBalances = [
 
 async function seed() {
   try {
+    console.log(`Using MONGO_URI: ${MONGO_URI}`);
     await mongoose.connect(MONGO_URI);
     console.log("✅ Connected to MongoDB");
 
     // Clear existing data
-    await Promise.all([
+    const deleteResults = await Promise.all([
       User.deleteMany({}),
       Purchase.deleteMany({}),
       Transfer.deleteMany({}),
       Assignment.deleteMany({}),
       OpeningBalance.deleteMany({}),
     ]);
-    console.log("🗑️  Cleared existing data");
+    console.log(`🗑️  Cleared existing data:`, deleteResults.map(r => r.deletedCount).reduce((a,b) => a+b, 0));
 
-    
-    const createdUsers = await User.create(users);
+    // Create users one by one to ensure they are saved
+    const createdUsers = [];
+    for (const userData of users) {
+      const user = new User(userData);
+      const saved = await user.save();
+      createdUsers.push(saved);
+      console.log(`   ✓ Created user: ${saved.username} (${saved._id})`);
+    }
     console.log(`👤 Seeded ${createdUsers.length} users`);
+    
+    // Verify users were saved
+    const userCount = await User.countDocuments();
+    console.log(`🔍 Verified: ${userCount} users in database`);
 
     const adminUser = createdUsers.find(u => u.role === "admin");
     const chenUser = createdUsers.find(u => u.username === "col.chen");

@@ -23,12 +23,11 @@ const purchaseSchema = new mongoose.Schema(
 );
 
 // Auto-generate purchaseId
-purchaseSchema.pre("save", async function (next) {
+purchaseSchema.pre("save", async function () {
   if (!this.purchaseId) {
     const rand = Math.random().toString(36).substr(2, 6).toUpperCase();
     this.purchaseId = `P-${rand}`;
   }
-  next();
 });
 
 module.exports = mongoose.model("Purchase", purchaseSchema);
