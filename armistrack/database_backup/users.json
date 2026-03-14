@@ -1,0 +1,62 @@
+[
+  {
+    "_id": "69b34f6eb8dfce250264c8cc",
+    "name": "Gen. Marcus Reid",
+    "username": "gen.reid",
+    "password": "$2b$10$224tsCs6o0kRGxumE4vJDO7MPOtZISHb1hObKYdoeSbShxFsRwD7e",
+    "role": "admin",
+    "base": null,
+    "isActive": true,
+    "createdAt": "2026-03-12T23:42:38.584Z",
+    "updatedAt": "2026-03-12T23:42:38.584Z",
+    "__v": 0
+  },
+  {
+    "_id": "69b34f6eb8dfce250264c8ce",
+    "name": "Col. Sarah Chen",
+    "username": "col.chen",
+    "password": "$2b$10$Ma1JmsODTHCrB4EsX1GID.ud3Ule42VZ7nit63w/97Sx8wMGuXF2y",
+    "role": "base_commander",
+    "base": "Alpha Base",
+    "isActive": true,
+    "createdAt": "2026-03-12T23:42:38.853Z",
+    "updatedAt": "2026-03-12T23:42:38.853Z",
+    "__v": 0
+  },
+  {
+    "_id": "69b34f6fb8dfce250264c8d0",
+    "name": "Lt. James Okafor",
+    "username": "lt.okafor",
+    "password": "$2b$10$aUELBC6EoHG3wge7uklhc.IfshZxAzcfamxnHNv2GQgcU2ROos8Vq",
+    "role": "base_commander",
+    "base": "Bravo Base",
+    "isActive": true,
+    "createdAt": "2026-03-12T23:42:39.042Z",
+    "updatedAt": "2026-03-12T23:42:39.042Z",
+    "__v": 0
+  },
+  {
+    "_id": "69b34f6fb8dfce250264c8d2",
+    "name": "Sgt. Nina Volkov",
+    "username": "sgt.volkov",
+    "password": "$2b$10$EzLRhZkhHt/JXHbcJb0Eq.33p/Rrp629BlsyByNEgHbXefS54VtGW",
+    "role": "logistics_officer",
+    "base": "Alpha Base",
+    "isActive": true,
+    "createdAt": "2026-03-12T23:42:39.243Z",
+    "updatedAt": "2026-03-12T23:42:39.243Z",
+    "__v": 0
+  },
+  {
+    "_id": "69b34f6fb8dfce250264c8d4",
+    "name": "Cpl. David Torres",
+    "username": "cpl.torres",
+    "password": "$2b$10$Z.GY0qPWPpLKjqjeIce7Z.h5SgWuPip8DRSZv284UdRgTVehviDHq",
+    "role": "logistics_officer",
+    "base": "Charlie Base",
+    "isActive": true,
+    "createdAt": "2026-03-12T23:42:39.439Z",
+    "updatedAt": "2026-03-12T23:42:39.439Z",
+    "__v": 0
+  }
+]
